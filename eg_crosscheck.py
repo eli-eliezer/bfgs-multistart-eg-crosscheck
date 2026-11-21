@@ -54,23 +54,24 @@ def lam2_bfgs(psi, n_starts=200, seed=2026):
 
 
 def lam2_alternating(psi, n_starts=200, seed=7, tol=1e-14, maxit=10000):
-    N = psi.ndim; rng = np.random.default_rng(seed); best = 0.0
+    """Returns (best value, number of starts within 1e-8 of the best)."""
+    N = psi.ndim; rng = np.random.default_rng(seed); vals = []
     for _ in range(n_starts):
         fac = [x / np.linalg.norm(x) for x in rng.normal(size=(N, 2)) + 1j * rng.normal(size=(N, 2))]
         old = -1.0
         for _ in range(maxit):
             for k in range(N):
                 t = np.moveaxis(psi, k, 0)
-                others = fac[:k] + fac[k + 1:]
-                for f in others:
+                for f in fac[:k] + fac[k + 1:]:
                     t = np.tensordot(t, f.conj(), axes=([1], [0]))
                 fac[k] = t / np.linalg.norm(t)          # optimal k-th factor given the others
             val = abs(overlap(psi, fac)) ** 2
             if abs(val - old) < tol:
                 break
             old = val
-        best = max(best, val)
-    return best
+        vals.append(val)
+    vals = np.array(vals); best = vals.max()
+    return best, int(np.sum(vals > best - 1e-8))
 
 
 def table2_states():
@@ -92,6 +93,6 @@ if __name__ == "__main__":
         N = len(next(iter(c)))
         psi = gd_state(N, c)
         b, hits = lam2_bfgs(psi)
-        a = lam2_alternating(psi)
-        print(f"{name:20s} Lambda2_BFGS={b:.12f} hits={hits}/200  Lambda2_alt={a:.12f}  "
+        a, hits_alt = lam2_alternating(psi)
+        print(f"{name:20s} Lambda2_BFGS={b:.12f} hits={hits}/200  Lambda2_alt={a:.12f} hits={hits_alt}/200  "
               f"|diff|={abs(a-b):.1e}  E_G={1-b:.6f}")
