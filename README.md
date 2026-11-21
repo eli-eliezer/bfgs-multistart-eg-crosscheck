@@ -4,7 +4,7 @@
 
 Reproducible code accompanying the manuscript **“Explicit (ℓ+1)-Partite Reduced Density
 Matrices of Generalized Dicke States and Their Determination of the Scott and
-Geometric Entanglement Measures”**, submitted or accepted for publication in
+Geometric Entanglement Measures”**, submitted for publication in
 _Zero: Jurnal Sains, Matematika dan Terapan_.
 
 ## Contents
