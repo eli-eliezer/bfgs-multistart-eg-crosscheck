@@ -2,9 +2,10 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24422765.svg)](https://doi.org/10.5281/zenodo.24422765)
 
-Reproducible code accompanying the article **“Explicit (ℓ+1)-Partite Reduced Density
+Reproducible code accompanying the manuscript **“Explicit (ℓ+1)-Partite Reduced Density
 Matrices of Generalized Dicke States and Their Determination of the Scott and
-Geometric Entanglement Measures”**, published in _Zero: Jurnal Sains, Matematika dan Terapan_.
+Geometric Entanglement Measures”**, submitted or accepted for publication in
+_Zero: Jurnal Sains, Matematika dan Terapan_.
 
 ## Contents
 
