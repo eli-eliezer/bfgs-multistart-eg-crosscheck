@@ -1,5 +1,7 @@
 # BFGS multistart and \(E_G\) cross-check
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24422765.svg)](https://doi.org/10.5281/zenodo.24422765)
+
 Reproducible code accompanying the article **“Explicit (ℓ+1)-Partite Reduced Density
 Matrices of Generalized Dicke States and Their Determination of the Scott and
 Geometric Entanglement Measures”**, published in _Zero: Jurnal Sains, Matematika dan Terapan_.
